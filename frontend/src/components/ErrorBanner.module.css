@@ -1,0 +1,93 @@
+/* ErrorBanner.module.css */
+
+.errorBanner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #c62828 0%, #b71c1c 100%); /* Red gradient for error */
+    border-radius: 12px;
+    margin: 20px auto;
+    max-width: 80%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-out;
+    border: 1px solid #ef5350; /* Light red border */
+    color: #ffffff; /* White text for contrast */
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .errorBannerContent {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+  }
+  
+  .errorIcon {
+    font-size: 24px; /* Larger icon for emphasis */
+    color: #ffffff; /* White icon */
+    flex-shrink: 0;
+  }
+  
+  .errorText {
+    line-height: 1.4;
+  }
+  
+  /* Hover Effect */
+  .errorBanner:hover {
+    box-shadow: 0 6px 16px rgba(198, 40, 40, 0.3);
+    transition: box-shadow 0.2s ease;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .errorBanner {
+      padding: 12px 16px;
+      max-width: 90%;
+      font-size: 14px;
+    }
+  
+    .errorBannerContent {
+      gap: 8px;
+      font-size: 14px;
+    }
+  
+    .errorIcon {
+      font-size: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .errorBanner {
+      padding: 10px 12px;
+      max-width: 95%;
+      border-radius: 8px;
+    }
+  
+    .errorBannerContent {
+      flex-direction: column;
+      gap: 4px;
+    }
+  
+    .errorText {
+      font-size: 13px;
+    }
+  }
+  
+  /* Accessibility Improvements */
+  .errorBanner:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+  }

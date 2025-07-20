@@ -1,0 +1,236 @@
+/* Loading.module.css */
+
+.loadingContainer {
+    display: flex;
+    flex-direction: row; /* Changed from column to row */
+    align-items: center; /* Centers vertically */
+    justify-content: flex-start; /* Aligns content to left */
+    padding: 20px; /* Reduced padding since it's now horizontal */
+    gap: 16px;
+    background: #2a2a2a;
+    border-radius: 18px;
+    border: 1px solid #3a3a3a;
+    width: 100%;
+    animation: loadingSlideIn 0.3s ease-out;
+  }
+  
+  @keyframes loadingSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .spinnerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 24px;
+    flex-shrink: 0; /* Prevents spinner from shrinking */
+  }
+  
+  .spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid #3a3a3a;
+    border-top: 3px solid #2f7cf4;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .loadingText {
+    color: #cccccc;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left; /* Changed from center to left */
+    line-height: 1.4;
+    animation: textPulse 2s ease-in-out infinite;
+    flex: 1; /* Takes remaining space */
+  }
+  
+  @keyframes textPulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+  }
+  
+  /* Alternative Spinner Styles */
+  
+  /* Dots Spinner */
+  .spinner.dots {
+    width: auto;
+    height: auto;
+    border: none;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+  
+  .spinner.dots::before,
+  .spinner.dots::after,
+  .spinner.dots {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #2f7cf4;
+    border-radius: 50%;
+    animation: dotPulse 1.4s infinite ease-in-out;
+  }
+  
+  .spinner.dots::before {
+    animation-delay: -0.32s;
+  }
+  
+  .spinner.dots::after {
+    animation-delay: -0.16s;
+  }
+  
+  @keyframes dotPulse {
+    0%, 60%, 100% {
+      transform: scale(0.6);
+      opacity: 0.3;
+    }
+    30% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Bouncing Dots */
+  .spinner.bouncing {
+    width: auto;
+    height: 20px;
+    border: none;
+    display: flex;
+    gap: 4px;
+    align-items: flex-end;
+  }
+  
+  .spinner.bouncing::before,
+  .spinner.bouncing::after,
+  .spinner.bouncing {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #2f7cf4;
+    border-radius: 50%;
+    animation: bounce 1.4s infinite ease-in-out;
+  }
+  
+  .spinner.bouncing::before {
+    animation-delay: -0.32s;
+  }
+  
+  .spinner.bouncing::after {
+    animation-delay: -0.16s;
+  }
+  
+  @keyframes bounce {
+    0%, 60%, 100% {
+      transform: translateY(0);
+    }
+    30% {
+      transform: translateY(-12px);
+    }
+  }
+  
+  /* Pulse Spinner */
+  .spinner.pulse {
+    width: 24px;
+    height: 24px;
+    background: #2f7cf4;
+    border: none;
+    border-radius: 50%;
+    animation: pulseScale 1.5s infinite ease-in-out;
+  }
+  
+  @keyframes pulseScale {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .loadingContainer {
+      padding: 16px;
+      gap: 12px;
+    }
+  
+    .spinnerContainer {
+      width: 36px;
+      height: 36px;
+    }
+  
+    .spinner {
+      width: 28px;
+      height: 28px;
+      border-width: 2px;
+    }
+  
+    .loadingText {
+      font-size: 13px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .loadingContainer {
+      padding: 12px;
+      gap: 10px;
+    }
+  
+    .spinnerContainer {
+      width: 32px;
+      height: 32px;
+    }
+  
+    .spinner {
+      width: 24px;
+      height: 24px;
+    }
+  
+    .loadingText {
+      font-size: 12px;
+    }
+  }
+  
+  /* Dark Theme Variations */
+  .loadingContainer.dark {
+    background: #1a1a1a;
+    border-color: #2a2a2a;
+  }
+  
+  /* Hover Effects (Optional) */
+  .loadingContainer:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+  }
+  
+  /* Additional Animation for Container */
+  .loadingContainer.typing {
+    animation: typingPulse 2s infinite ease-in-out;
+  }
+  
+  @keyframes typingPulse {
+    0%, 100% { 
+      background: #2a2a2a; 
+    }
+    50% { 
+      background: #2d2d2d; 
+    }
+  }
